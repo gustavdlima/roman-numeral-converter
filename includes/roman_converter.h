@@ -2,6 +2,9 @@
 #define ROMAN_CONVERTER_H
 
 #include <stdio.h>
+#include <stdlib.h>
+
+#define TOTAL_ROMAN_NUMERALS 13
 
 typedef enum {
 	M,
@@ -17,7 +20,6 @@ typedef enum {
 	V,
 	IV,
 	I,
-	TOTAL_ROMAN_NUMERALS
 } RomanNumeral;
 
 typedef struct {
@@ -26,6 +28,7 @@ typedef struct {
 	char *symbol;
 } RomanNumeralMap;
 
+RomanNumeralMap* initRomanNumerals(void);
 
 
 #endif
