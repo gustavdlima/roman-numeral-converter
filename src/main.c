@@ -2,8 +2,8 @@
 
 int	main(int argc, char **argv)
 {
-	printf("%i\n", argc);
-	printf("%s\n\n\n\n\n", argv[1]);
+	if (validate(argv[1], argc) != 0)
+		exit(1);
 
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
 
