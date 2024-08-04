@@ -7,10 +7,11 @@ int	main(int argc, char **argv)
 
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
 
-	printf("%s\n", romanNumerals[11].symbol);
-	printf("%d\n", romanNumerals[11].value);
+	int number = convertInputToInteger(argv[1]);
+	char *romanString =	convertIntegerToRomanNumerals(number, romanNumerals);
 
+	printf("%s\n", romanString);
+	free(romanString);
 	free(romanNumerals);
-
 	return 0;
 }

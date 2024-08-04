@@ -1,4 +1,4 @@
-NAME            = convert
+NAME            = romanConverter
 
 # Compiler configuration
 CC              = g++
@@ -13,7 +13,7 @@ INCLUDES        = $(addprefix -I,$(INCLUDES_DIR))
 SRC_DIR         = ./src
 OBJ_DIR         = ./build
 TEST_DIR        = ./tests/unit
-SRCS            = main.c init_roman_numerals.c validations.c 
+SRCS            = main.c validations.c convert.c utils.c
 TEST_SRCS       = test_validations.cpp test_init_roman_numerals.cpp
 
 # Main program compilation
