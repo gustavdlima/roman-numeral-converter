@@ -1,35 +1,65 @@
-NAME			= convert
+NAME            = convert
 
-CC				= gcc
-CFLAGS			= -g3 -Wall -Wextra -Werror
-RM				= rm -f
+# Compiler configuration
+CC              = g++
+CFLAGS          = -g3 -Wall -Wextra -Werror
+RM              = rm -f
 
-INCLUDES_DIR	= includes
-INCLUDES		= $(addprefix -I,$(INCLUDES_DIR))
+# Header Directories
+INCLUDES_DIR    = includes
+INCLUDES        = $(addprefix -I,$(INCLUDES_DIR))
 
-SRC_DIR			= ./src
-OBJ_DIR	 		= ./build
+# Source Directories
+SRC_DIR         = ./src
+OBJ_DIR         = ./build
+TEST_DIR        = ./tests/unit
+SRCS            = main.c init_roman_numerals.c validations.c 
+TEST_SRCS       = test_validations.cpp test_init_roman_numerals.cpp
 
-SRCS	=	roman_converter.c	\
+# Main program compilation
+OBJS            := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
+SRCS            := $(addprefix $(SRC_DIR)/,$(SRCS))
 
-OBJS	:= $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
-SRCS	:= $(addprefix $(SRC_DIR)/,$(SRCS))
+# Test files compilation and linking
+TEST_OBJS       := $(addprefix $(OBJ_DIR)/,$(TEST_SRCS:.cpp=.o))
+TEST_SRCS       := $(addprefix $(TEST_DIR)/,$(TEST_SRCS))
+TEST_OBJS_NO_MAIN = $(filter-out $(OBJ_DIR)/main.o, $(OBJS))
 
-all:	$(NAME)
+# Google Test configuration
+GTEST_DIR       = ./googletest
+GTEST_LIB       = $(GTEST_DIR)/build/lib/libgtest.a $(GTEST_DIR)/build/lib/libgtest_main.a
+GTEST_INC       = -I$(GTEST_DIR)/googletest/include
 
+all: $(NAME)
+
+# Rule to compile the main program
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDES)
 
+# Rule to compile the .c files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+# Rule to compile the test files
+$(OBJ_DIR)/%.o: $(TEST_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(GTEST_INC) $(INCLUDES) -c $< -o $@
+
+# Rule to compile the test program and link with
+test: $(TEST_OBJS_NO_MAIN) $(TEST_OBJS)
+	$(CC) $(CFLAGS) -o test $(TEST_OBJS_NO_MAIN) $(TEST_OBJS) $(GTEST_LIB) $(INCLUDES) $(GTEST_INC)
+	./test
+
+# Rule to clean the object files
 clean:
 	$(RM) -r $(OBJ_DIR)
 
+# Rule to clean the object files and the executable
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) test
 
-re:	fclean all
+# Rule to recompile the program
+re: fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re test
