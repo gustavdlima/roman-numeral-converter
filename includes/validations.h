@@ -1,8 +1,6 @@
 #ifndef VALIDATIONS_H
 #define VALIDATIONS_H
 
-#include "roman_converter.h"
-
 int isEmpty(int argc);
 int hasMoreThanOneInput(int argc);
 int isValidNumber(char *input);

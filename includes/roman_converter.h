@@ -4,31 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "validations.h"
+#include "utils.h"
+#include "convert.h"
+#include "string.h"
 
 #define TOTAL_ROMAN_NUMERALS 13
+#define MAX_ROMAN_NUMERAL_LENGTH 3999
 
-typedef enum {
-	M,
-	CM,
-	D,
-	CD,
-	C,
-	XC,
-	L,
-	XL,
-	X,
-	IX,
-	V,
-	IV,
-	I,
-} RomanNumeral;
 
-typedef struct {
-	RomanNumeral roman_numeral;
-	int value;
-	char *symbol;
-} RomanNumeralMap;
-
-RomanNumeralMap* initRomanNumerals(void);
 
 #endif
