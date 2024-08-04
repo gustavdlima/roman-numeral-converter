@@ -1,4 +1,4 @@
-#include "roman_converter.h"
+#include "main.h"
 
 int verifyValidInterval(char *input) {
 	int number = atoi(input);
