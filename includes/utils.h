@@ -1,29 +1,10 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-typedef enum {
-	M,
-	CM,
-	D,
-	CD,
-	C,
-	XC,
-	L,
-	XL,
-	X,
-	IX,
-	V,
-	IV,
-	I,
-} RomanNumeral;
-
-typedef struct {
-	RomanNumeral roman_numeral;
-	int value;
-	char *symbol;
-} RomanNumeralMap;
+#include "main.h"
 
 RomanNumeralMap* initRomanNumerals(void);
 int convertInputToInteger(char *input);
+int returnRomanNumeralIntegerValue(char romanNumeral, RomanNumeralMap *romanNumerals);
 
 #endif //UTILS_H

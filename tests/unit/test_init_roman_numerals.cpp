@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "roman_converter.h"
+#include "main.h"
 
 TEST(RomanNumeralsTest, Initialization) {
 	RomanNumeralMap* romanNumerals = initRomanNumerals();

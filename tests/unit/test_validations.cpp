@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "roman_converter.h"
+#include "main.h"
 
 TEST(ValidateInputTest, InvalidNumber) {
 	// Test when the user enters an invalid number

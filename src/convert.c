@@ -1,4 +1,22 @@
-#include "roman_converter.h"
+#include "main.h"
+
+int convertRomanNumeralsToInteger(char *romanNumeralString, RomanNumeralMap *romanNumerals) {
+	int result = 0;
+	int lastValue = 0;
+
+	for (int i = strlen(romanNumeralString) - 1; i >= 0; i--) {
+		int actualValue = returnRomanNumeralIntegerValue(romanNumeralString[i], romanNumerals);
+
+		if (actualValue <= lastValue)
+			result -= actualValue;
+		else
+			result += actualValue;
+
+		lastValue = actualValue;
+	}
+
+	return result;
+}
 
 char *convertIntegerToRomanNumerals(int number, RomanNumeralMap *romanNumerals)
 {
