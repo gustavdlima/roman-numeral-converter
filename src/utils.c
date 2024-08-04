@@ -1,4 +1,16 @@
-#include "roman_converter.h"
+#include "main.h"
+
+int returnRomanNumeralIntegerValue(char romanNumeral, RomanNumeralMap *romanNumerals)
+{
+	for (int i = 0; i < TOTAL_ROMAN_NUMERALS; i++)
+	{
+		if (romanNumeral == *romanNumerals[i].symbol)
+		{
+			return romanNumerals[i].value;
+		}
+	}
+	return 0;
+}
 
 RomanNumeralMap* initRomanNumerals(void)
 {
