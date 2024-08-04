@@ -1,6 +1,44 @@
 #include <gtest/gtest.h>
 #include "roman_converter.h"
 
+// Roman Numeral to Integer TESTS
+TEST(Convert, convertRomanNumeralsToInteger)
+{
+	RomanNumeralMap *romanNumerals = initRomanNumerals();
+	int integer = convertRomanNumeralsToInteger("I", romanNumerals);
+	EXPECT_EQ(integer, 1);
+}
+
+TEST(Convert, convertRomanNumeralsToInteger)
+{
+	RomanNumeralMap *romanNumerals = initRomanNumerals();
+	int integer = convertRomanNumeralsToInteger("LV", romanNumerals);
+	EXPECT_EQ(integer, 55);
+}
+
+TEST(Convert, convertRomanNumeralsToInteger)
+{
+	RomanNumeralMap *romanNumerals = initRomanNumerals();
+	int integer = convertRomanNumeralsToInteger("M", romanNumerals);
+	EXPECT_EQ(integer, 1000);
+}
+
+TEST(Convert, convertRomanNumeralsToInteger)
+{
+	RomanNumeralMap *romanNumerals = initRomanNumerals();
+	int integer = convertRomanNumeralsToInteger("MCMXC", romanNumerals);
+	EXPECT_EQ(integer, 1990);
+}
+
+TEST(Convert, convertRomanNumeralsToInteger)
+{
+	RomanNumeralMap *romanNumerals = initRomanNumerals();
+	int integer = convertRomanNumeralsToInteger("MMVIII", romanNumerals);
+	EXPECT_EQ(integer, 2008);
+}
+
+
+// Integer to Roman Numeral TESTS
 TEST(Convert, convertIntegerToRomanNumerals)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
@@ -28,7 +66,7 @@ TEST(Convert, convertIntegerToRomanNumerals)
 	char *roman = convertIntegerToRomanNumerals(1990, romanNumerals);
 	EXPECT_STREQ(roman, "MCMXC");
 }
-
+100 - 10 + 1000 - 100 + 1000
 TEST(Convert, convertIntegerToRomanNumerals)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
