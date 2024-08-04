@@ -13,8 +13,8 @@ INCLUDES        = $(addprefix -I,$(INCLUDES_DIR))
 SRC_DIR         = ./src
 OBJ_DIR         = ./build
 TEST_DIR        = ./tests/unit
-SRCS            = main.c init-roman-numerals.c
-TEST_SRCS       = test_roman_numerals.cpp
+SRCS            = main.c init_roman_numerals.c validations.c 
+TEST_SRCS       = test_validations.cpp test_init_roman_numerals.cpp
 
 # Main program compilation
 OBJS            := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
