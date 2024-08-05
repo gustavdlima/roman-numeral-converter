@@ -14,7 +14,7 @@ char *getUserInput(void) {
 int returnRomanNumeralIntegerValue(char romanNumeral)
 {
 	UniqueRomanNumeralMap *romanNumeralMap = initUniqueRomanNumerals();
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < TOTAL_UNIQUE_ROMAN_NUMERALS; i++) {
 		if (romanNumeral == romanNumeralMap[i].symbol) {
 			int value = romanNumeralMap[i].value;
 			free(romanNumeralMap);
@@ -28,7 +28,7 @@ int returnRomanNumeralIntegerValue(char romanNumeral)
 
 UniqueRomanNumeralMap* initUniqueRomanNumerals(void)
 {
-	UniqueRomanNumeralMap *uniqueRomanNumerals = (UniqueRomanNumeralMap*)malloc(sizeof(UniqueRomanNumeralMap) * 7);
+	UniqueRomanNumeralMap *uniqueRomanNumerals = (UniqueRomanNumeralMap*)malloc(sizeof(UniqueRomanNumeralMap) * TOTAL_UNIQUE_ROMAN_NUMERALS);
 	if (uniqueRomanNumerals == NULL)
 	{
 		printf("Failed to allocate memory for uniqueRomanNumerals\n");
