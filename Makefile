@@ -14,7 +14,7 @@ SRC_DIR         = ./src
 OBJ_DIR         = ./build
 TEST_DIR        = ./tests/unit
 SRCS            = main.c validations.c convert.c utils.c cli.c
-TEST_SRCS       = test_validations.cpp test_init_roman_numerals.cpp
+TEST_SRCS       = test_convert.cpp test_validations.cpp test_utils.cpp
 
 # Main program compilation
 OBJS            := $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))

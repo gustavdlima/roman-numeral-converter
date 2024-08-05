@@ -1,81 +1,70 @@
 #include <gtest/gtest.h>
-#include "roman_converter.h"
+#include "main.h"
 
 // Roman Numeral to Integer TESTS
-TEST(Convert, convertRomanToInteger)
+TEST(Convert1, convertRomanToInteger)
 {
-	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanToInteger("I", romanNumerals);
+	int integer = convertRomanToInteger((char *)"I");
 	EXPECT_EQ(integer, 1);
 }
 
-TEST(Convert, convertRomanToInteger)
+TEST(Convert2, convertRomanToInteger)
 {
-	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanToInteger("LV", romanNumerals);
+	int integer = convertRomanToInteger((char *)"LV");
 	EXPECT_EQ(integer, 55);
 }
 
-TEST(Convert, convertRomanToInteger)
+TEST(Convert3, convertRomanToInteger)
 {
-	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanToInteger("M", romanNumerals);
+	int integer = convertRomanToInteger((char *)"M");
 	EXPECT_EQ(integer, 1000);
 }
 
-TEST(Convert, convertRomanToInteger)
+TEST(Convert4, convertRomanToInteger)
 {
-	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanToInteger("MCMXC", romanNumerals);
+	int integer = convertRomanToInteger((char *)"MCMXC");
 	EXPECT_EQ(integer, 1990);
 }
 
-TEST(Convert, convertRomanToInteger)
+TEST(Convert5, convertRomanToInteger)
 {
-	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanToInteger("MMVIII", romanNumerals);
+	int integer = convertRomanToInteger((char *)"MMVIII");
 	EXPECT_EQ(integer, 2008);
 }
 
 
 // Integer to Roman Numeral TESTS
-TEST(Convert, convertIntegerToRomanNumerals)
+TEST(Convert6, convertIntegerToRomanNumerals)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
 	char *roman = convertIntegerToRomanNumerals(1, romanNumerals);
 	EXPECT_STREQ(roman, "I");
 }
 
-TEST(Convert, convertIntegerToRomanNumerals)
+TEST(Convert7, convertIntegerToRomanNumerals)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
 	char *roman = convertIntegerToRomanNumerals(55, romanNumerals);
 	EXPECT_STREQ(roman, "LV");
 }
 
-TEST(Convert, convertIntegerToRomanNumerals)
+TEST(Convert8, convertIntegerToRomanNumerals)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
 	char *roman = convertIntegerToRomanNumerals(1000, romanNumerals);
 	EXPECT_STREQ(roman, "M");
 }
 
-TEST(Convert, convertIntegerToRomanNumerals)
+TEST(Convert9, convertIntegerToRomanNumerals)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
 	char *roman = convertIntegerToRomanNumerals(1990, romanNumerals);
 	EXPECT_STREQ(roman, "MCMXC");
 }
-100 - 10 + 1000 - 100 + 1000
-TEST(Convert, convertIntegerToRomanNumerals)
+
+TEST(Convert10, convertIntegerToRomanNumerals)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
 	char *roman = convertIntegerToRomanNumerals(2008, romanNumerals);
 	EXPECT_STREQ(roman, "MMVIII");
-}
-
-int main(int argc, char **argv)
-{
-	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
 }

@@ -29,6 +29,10 @@ typedef struct {
 	char *symbol;
 } RomanNumeralMap;
 
+#define TOTAL_ROMAN_NUMERALS 13
+#define TOTAL_UNIQUE_ROMAN_NUMERALS 7
+#define MAX_ROMAN_NUMERAL_LENGTH 3999
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,8 +42,6 @@ typedef struct {
 #include "convert.h"
 #include "cli.h"
 
-#define TOTAL_ROMAN_NUMERALS 13
-#define MAX_ROMAN_NUMERAL_LENGTH 3999
 
 
 
