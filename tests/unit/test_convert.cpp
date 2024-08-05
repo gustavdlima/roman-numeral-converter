@@ -2,38 +2,38 @@
 #include "roman_converter.h"
 
 // Roman Numeral to Integer TESTS
-TEST(Convert, convertRomanNumeralsToInteger)
+TEST(Convert, convertRomanToInteger)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanNumeralsToInteger("I", romanNumerals);
+	int integer = convertRomanToInteger("I", romanNumerals);
 	EXPECT_EQ(integer, 1);
 }
 
-TEST(Convert, convertRomanNumeralsToInteger)
+TEST(Convert, convertRomanToInteger)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanNumeralsToInteger("LV", romanNumerals);
+	int integer = convertRomanToInteger("LV", romanNumerals);
 	EXPECT_EQ(integer, 55);
 }
 
-TEST(Convert, convertRomanNumeralsToInteger)
+TEST(Convert, convertRomanToInteger)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanNumeralsToInteger("M", romanNumerals);
+	int integer = convertRomanToInteger("M", romanNumerals);
 	EXPECT_EQ(integer, 1000);
 }
 
-TEST(Convert, convertRomanNumeralsToInteger)
+TEST(Convert, convertRomanToInteger)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanNumeralsToInteger("MCMXC", romanNumerals);
+	int integer = convertRomanToInteger("MCMXC", romanNumerals);
 	EXPECT_EQ(integer, 1990);
 }
 
-TEST(Convert, convertRomanNumeralsToInteger)
+TEST(Convert, convertRomanToInteger)
 {
 	RomanNumeralMap *romanNumerals = initRomanNumerals();
-	int integer = convertRomanNumeralsToInteger("MMVIII", romanNumerals);
+	int integer = convertRomanToInteger("MMVIII", romanNumerals);
 	EXPECT_EQ(integer, 2008);
 }
 

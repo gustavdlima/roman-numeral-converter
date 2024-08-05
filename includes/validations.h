@@ -1,10 +1,11 @@
 #ifndef VALIDATIONS_H
 #define VALIDATIONS_H
 
-int isEmpty(int argc);
-int hasMoreThanOneInput(int argc);
 int isValidNumber(char *input);
 int verifyValidInterval(char *input);
-int validate(char *input, int argc);
+int isValidRomanNumeral(char *input);
+int validateIntegerToRoman(char *input);
+int validateRomanToInteger(char *input);
+int validateMenuSelection(char *input, int read);
 
 #endif

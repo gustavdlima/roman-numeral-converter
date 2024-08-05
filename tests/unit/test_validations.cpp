@@ -26,18 +26,6 @@ TEST(ValidateInputTest, ValidNumber) {
 	ASSERT_EQ(isValidNumber(input), 0);
 }
 
-TEST(ValidateInputTest, EmptyInput) {
-	// Test when the user enters an empty input
-	int argc = 1;
-	ASSERT_EQ(isEmpty(argc), 1);
-}
-
-TEST(ValidateInputTest, MoreThanOneInput) {
-	// Test when the user enters more than one input
-	int argc = 3;
-	ASSERT_EQ(hasMoreThanOneInput(argc), 1);
-}
-
 TEST(ValidateInputTest, ValidInterval) {
 	// Test when the user enters a number within the valid interval
 	char *number = (char *)"42";

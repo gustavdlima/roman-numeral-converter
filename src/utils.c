@@ -1,15 +1,56 @@
 #include "main.h"
 
-int returnRomanNumeralIntegerValue(char romanNumeral, RomanNumeralMap *romanNumerals)
+char *getUserInput(void) {
+	char *input = NULL;
+	size_t len = 0;
+	ssize_t read;
+
+	read = getline(&input, &len, stdin);
+	(void)read;
+
+	return input;
+}
+
+int returnRomanNumeralIntegerValue(char romanNumeral)
 {
-	for (int i = 0; i < TOTAL_ROMAN_NUMERALS; i++)
-	{
-		if (romanNumeral == *romanNumerals[i].symbol)
-		{
-			return romanNumerals[i].value;
+	UniqueRomanNumeralMap *romanNumeralMap = initUniqueRomanNumerals();
+	for (int i = 0; i < 7; i++) {
+		if (romanNumeral == romanNumeralMap[i].symbol) {
+			int value = romanNumeralMap[i].value;
+			free(romanNumeralMap);
+			return value;
 		}
 	}
+
+	free(romanNumeralMap);
 	return 0;
+}
+
+UniqueRomanNumeralMap* initUniqueRomanNumerals(void)
+{
+	UniqueRomanNumeralMap *uniqueRomanNumerals = (UniqueRomanNumeralMap*)malloc(sizeof(UniqueRomanNumeralMap) * 7);
+	if (uniqueRomanNumerals == NULL)
+	{
+		printf("Failed to allocate memory for uniqueRomanNumerals\n");
+		exit(1);
+	}
+
+	uniqueRomanNumerals[0].symbol = 'M';
+	uniqueRomanNumerals[0].value = 1000;
+	uniqueRomanNumerals[1].symbol = 'D';
+	uniqueRomanNumerals[1].value = 500;
+	uniqueRomanNumerals[2].symbol = 'C';
+	uniqueRomanNumerals[2].value = 100;
+	uniqueRomanNumerals[3].symbol = 'L';
+	uniqueRomanNumerals[3].value = 50;
+	uniqueRomanNumerals[4].symbol = 'X';
+	uniqueRomanNumerals[4].value = 10;
+	uniqueRomanNumerals[5].symbol = 'V';
+	uniqueRomanNumerals[5].value = 5;
+	uniqueRomanNumerals[6].symbol = 'I';
+	uniqueRomanNumerals[6].value = 1;
+
+	return uniqueRomanNumerals;
 }
 
 RomanNumeralMap* initRomanNumerals(void)

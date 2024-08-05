@@ -4,6 +4,6 @@
 #include "main.h"
 
 char *convertIntegerToRomanNumerals(int number, RomanNumeralMap *romanNumerals);
-int convertRomanNumeralsToInteger(char *romanNumeralString, RomanNumeralMap *romanNumerals);
+int convertRomanToInteger(char *romanNumeralString);
 
 #endif //CONVERT_H
