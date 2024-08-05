@@ -1,17 +1,15 @@
 #include "main.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (validate(argv[1], argc) != 0)
-		exit(1);
+	int choice;
 
-	RomanNumeralMap *romanNumerals = initRomanNumerals();
+	choice = printMenu();
 
-	int number = convertInputToInteger(argv[1]);
-	char *romanString =	convertIntegerToRomanNumerals(number, romanNumerals);
+	while(1) {
+		handleMenuSelection(choice);
+		choice = printMenu();
+	}
 
-	printf("%s\n", romanString);
-	free(romanString);
-	free(romanNumerals);
 	return 0;
 }
