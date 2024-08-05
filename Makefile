@@ -13,7 +13,7 @@ INCLUDES        = $(addprefix -I,$(INCLUDES_DIR))
 SRC_DIR         = ./src
 OBJ_DIR         = ./build
 TEST_DIR        = ./tests/unit
-SRCS            = main.c validations.c convert.c utils.c
+SRCS            = main.c validations.c convert.c utils.c cli.c
 TEST_SRCS       = test_validations.cpp test_init_roman_numerals.cpp
 
 # Main program compilation
@@ -61,5 +61,10 @@ fclean: clean
 
 # Rule to recompile the program
 re: fclean all
+
+# Run main program
+run: all
+	clear
+	./$(NAME)
 
 .PHONY: all clean fclean re test
