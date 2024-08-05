@@ -1,5 +1,15 @@
 #include "main.h"
 
+int isValidRomanNumeral(char *input) {
+	int i = 0;
+	while (input[i] != '\n') {
+		if (input[i] != 'I' && input[i] != 'V' && input[i] != 'X' && input[i] != 'L' && input[i] != 'C' && input[i] != 'D' && input[i] != 'M')
+			return 1;
+		i++;
+	}
+	return 0;
+}
+
 int verifyValidInterval(char *input) {
 	int number = atoi(input);
 	if (number < 1 || number > 3999)
@@ -8,41 +18,47 @@ int verifyValidInterval(char *input) {
 }
 
 int isValidNumber(char *input) {
-	char *endptr;
-	strtol(input, &endptr, 10);
-
-	if (*endptr != '\0')
-		return 1;
+	int i = 0;
+	while (input[i] != '\0') {
+		printf("%c\n", input[i]);
+		if (input[i] == '\n')
+			break;
+		if (!isdigit(input[i])) {
+			return 1;
+		}
+		i++;
+	}
 	return 0;
 }
 
-int hasMoreThanOneInput(int argc) {
-	if (argc > 2)
+int validateMenuSelection(char *input, int read) {
+	if (read == -1)
+	{
+		printf("Error reading input\n");
+		exit(1);
+	}
+
+	if (input[read - 1] == '\n')
+		input[read - 1] = '\0';
+
+	if (strcmp(input, "1") != 0 && strcmp(input, "2") != 0 && strcmp(input, "3") != 0)
 		return 1;
+
 	return 0;
 }
 
-int isEmpty(int argc) {
-	if (argc < 2)
-		return 1;
-	return 0;
-}
-
-int validate(char *input, int argc) {
-
-	// Check if the user has entered an input
-	if (isEmpty(argc) != 0) {
-		printf("Please enter an integer\n");
+int validateRomanToInteger(char *input) {
+	if (isValidRomanNumeral(input) != 0) {
+		printf("Please enter a valid roman numeral\n");
 		return 1;
 	}
 
-	// Check if the user has entered more than one input
-	if (hasMoreThanOneInput(argc) != 0) {
-		printf("Please enter only one integer\n");
-		return 1;
-	}
+	return 0;
+}
 
-	// Check if the user has entered a valid number
+int validateIntegerToRoman(char *input) {
+
+	// Check if the user has entered a number
 	if (isValidNumber(input) != 0) {
 		printf("Please enter a integer\n");
 		return 1;
@@ -53,6 +69,7 @@ int validate(char *input, int argc) {
 		printf("Please enter a number between 1 and 3999\n");
 		return 1;
 	}
+
 
 	return 0;
 }
