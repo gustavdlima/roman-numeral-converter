@@ -8,6 +8,7 @@ This program converts integers into Roman numerals and vice versa.
 - CMake
 - Git
 - Google Test
+- Build Essential
 
 ## Installation
 
